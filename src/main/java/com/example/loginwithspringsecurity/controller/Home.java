@@ -1,6 +1,8 @@
 package com.example.loginwithspringsecurity.controller;
 
 
+import com.example.loginwithspringsecurity.payload.RegisterPayload;
+import com.example.loginwithspringsecurity.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.authentication.BadCredentialsException;
 //import org.springframework.security.authentication.LockedException;
@@ -18,9 +20,29 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 @Controller
 public class Home {
+
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/")
     public String home(HttpServletRequest request, HttpSession session) {
         return "index";
+    }
+
+    @GetMapping("/login")
+    public String login (HttpServletRequest request, HttpSession session) {
+        return "login";
+    }
+
+    @GetMapping("/register")
+    public  String register (){
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String register (@ModelAttribute RegisterPayload registerPayLoad) {
+        userService.save(registerPayLoad);
+        return "redirect:login";
     }
 
 }
