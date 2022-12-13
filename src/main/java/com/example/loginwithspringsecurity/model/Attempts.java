@@ -10,15 +10,15 @@ public class Attempts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String userName;
+    private String email;
 
     private int attempts;
 
     public Attempts() {
     }
 
-    public Attempts(String userName, int attempts) {
-        this.userName = userName;
+    public Attempts(String email, int attempts) {
+        this.email = email;
         this.attempts = attempts;
     }
 
@@ -30,12 +30,12 @@ public class Attempts {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getAttempts() {

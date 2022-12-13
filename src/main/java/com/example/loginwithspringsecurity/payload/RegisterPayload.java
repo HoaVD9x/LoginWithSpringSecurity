@@ -2,7 +2,9 @@ package com.example.loginwithspringsecurity.payload;
 
 public class RegisterPayload {
 
-    private String userName;
+    private String firstName;
+
+    private String lastName;
 
     private  String email;
 
@@ -11,18 +13,27 @@ public class RegisterPayload {
     public RegisterPayload() {
     }
 
-    public RegisterPayload(String userName, String email, String password) {
-        this.userName = userName;
+    public RegisterPayload(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
