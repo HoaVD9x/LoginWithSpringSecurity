@@ -13,9 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -49,10 +51,21 @@ public class Home {
         return "register";
     }
 
+    @GetMapping("/detail/{productCode}")
+    public ModelAndView detailProduct (@PathVariable("productCode") String productCode){
+        Products productDetail = productService.product(productCode);
+        return new ModelAndView("productDetail", "productDetail", productDetail);
+    }
+
     @PostMapping("/register")
     public String register (@ModelAttribute RegisterPayload registerPayLoad) {
         userService.save(registerPayLoad);
         return "redirect:login";
+    }
+
+    @GetMapping("/productdetail")
+    public String productDetai () {
+        return "productDetail";
     }
 
 

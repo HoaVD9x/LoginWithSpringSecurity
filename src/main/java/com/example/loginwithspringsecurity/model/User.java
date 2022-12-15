@@ -1,7 +1,7 @@
 package com.example.loginwithspringsecurity.model;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "users")
-public class User implements UserDetails {
+public class User  {
     @Id
     private int userId;
 
@@ -26,7 +26,7 @@ public class User implements UserDetails {
     @Column(name = "account_non_locked")
     private boolean accountNonLocked;
 
-    public User() {
+    public User(String firstName, String lastName, String email, boolean b) {
     }
 
     public User(String firstName, String lastName, String email, String password, boolean accountNonLocked) {
@@ -35,6 +35,10 @@ public class User implements UserDetails {
         this.email = email;
         this.password = password;
         this.accountNonLocked = accountNonLocked;
+    }
+
+    public User() {
+
     }
 
     public int getUserId() {
@@ -69,21 +73,21 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        return null;
+//    }
 
     public String getPassword() {
         return password;
     }
 
-    @Override
+//    @Override
     public String getUsername() {
         return null;
     }
 
-    @Override
+//    @Override
     public boolean isAccountNonExpired() {
         return false;
     }
@@ -96,12 +100,12 @@ public class User implements UserDetails {
         return accountNonLocked;
     }
 
-    @Override
+//    @Override
     public boolean isCredentialsNonExpired() {
         return false;
     }
 
-    @Override
+//    @Override
     public boolean isEnabled() {
         return false;
     }

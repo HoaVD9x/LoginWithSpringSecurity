@@ -9,4 +9,6 @@ import java.util.List;
 
 public interface ProductService {
     List<Products> listProduct ();
+
+    Products product (String productCode);
 }

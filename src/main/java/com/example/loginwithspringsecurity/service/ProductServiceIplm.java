@@ -16,4 +16,8 @@ public class ProductServiceIplm implements ProductService{
     public List<Products> listProduct() {
         return repository.findAll();
     }
+
+    public Products product (String productCode) {
+        return repository.getProductsByProductCode(productCode);
+    }
 }
