@@ -1,7 +1,7 @@
 package com.example.loginwithspringsecurity.model;
 
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "users")
-public class User  {
+public class User implements UserDetails {
     @Id
     private int userId;
 
@@ -78,16 +78,21 @@ public class User  {
 //        return null;
 //    }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
     public String getPassword() {
         return password;
     }
 
-//    @Override
+    @Override
     public String getUsername() {
         return null;
     }
 
-//    @Override
+    @Override
     public boolean isAccountNonExpired() {
         return false;
     }
@@ -100,12 +105,12 @@ public class User  {
         return accountNonLocked;
     }
 
-//    @Override
+    @Override
     public boolean isCredentialsNonExpired() {
         return false;
     }
 
-//    @Override
+    @Override
     public boolean isEnabled() {
         return false;
     }

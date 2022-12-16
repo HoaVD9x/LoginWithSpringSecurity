@@ -20,5 +20,7 @@ public class UserServiceImpl implements  UserService{
         User user = new User(payload.getFirstName(), payload.getLastName(), payload.getEmail(), true);
         userRepository.save(user);
     }
+
+
 }
 //encoder.encode(payload.getPassword()

@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html class="no-js" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <title>EShopper - Bootstrap Shop Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
 
-    <!-- Favicon -->
-<!--    <link href="img/favicon.ico" rel="icon">-->
+    <link href="../../img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,10 +12,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../../css/styleproduct.css" rel="stylesheet">
+
+    <link href="../../css/ styleproduct.css" rel="stylesheet">
+
 
 </head>
 
@@ -33,7 +29,8 @@
     <div class="row align-items-center py-3 px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
             <a href="" class="text-decoration-none">
-                <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                <h1 class="m-0 display-5 font-weight-semi-bold"><span
+                        class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
             </a>
         </div>
         <div class="col-lg-6 col-6 text-left">
@@ -66,7 +63,8 @@
         <div class="col-lg">
             <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                 <a href="" class="text-decoration-none d-block d-lg-none">
-                    <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                    <h1 class="m-0 display-5 font-weight-semi-bold"><span
+                            class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -78,8 +76,8 @@
 
                     </div>
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="" class="nav-item nav-link">Login</a>
-                        <a href="" class="nav-item nav-link">Register</a>
+                        <a href="" class="nav-item nav-link" ></a>
+                        <a href="" class="nav-item nav-link" th:href="@{/logout}">Logout</a>
                     </div>
                 </div>
             </nav>
@@ -119,22 +117,24 @@
     <div class="text-center mb-4">
         <h2 class="section-title px-5"><span class="px-2"> Products</span></h2>
     </div>
-    <div class="row px-xl-5 pb-3" >
+    <div class="row px-xl-5 pb-3">
         <div class="col-lg-3 col-md-6 col-sm-12 pb-3 px-xl-5" th:each="item : ${listProduct}">
-            <div class="card product-item border-0 mb-4" style="">
+            <div class="card product-item border-0 mb-4">
                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                     <img class="img-fluid w-100 h-75" th:src="${item.getProductImageLink()}" alt="">
                 </div>
                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3" th:text="${item.getProductName()}"></h6>
-                    <div class="d-flex justify-content-center"th:text="${item.getBuyPrice()}">
+                    <h6 class="text-truncate " th:text="${item.getProductName()}"></h6>
+                    <div class="d-flex justify-content-center" th:text="${item.getBuyPrice()}">
 
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-between bg-light border">
 
-                    <a th:href="@{/detail/{ProductCode}(ProductCode=${item.getProductCode()})}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    <a th:href="@{/detail/{ProductCode}(ProductCode=${item.getProductCode()})}"
+                       class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add
+                        To Cart</a>
                 </div>
             </div>
         </div>
@@ -146,7 +146,8 @@
         <div class="col-md-6 col-12 py-5">
             <div class="text-center mb-2 pb-2">
                 <h2 class="section-title px-5 mb-3"><span class="bg-secondary px-2">Stay Updated</span></h2>
-                <p>Amet lorem at rebum amet dolores. Elitr lorem dolor sed amet diam labore at justo ipsum eirmod duo labore labore.</p>
+                <p>Amet lorem at rebum amet dolores. Elitr lorem dolor sed amet diam labore at justo ipsum eirmod duo
+                    labore labore.</p>
             </div>
             <form action="">
                 <div class="input-group">
@@ -160,315 +161,24 @@
     </div>
 </div>
 <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-
-<!-- JavaScript Libraries -->
-<!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
-<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>-->
-<!--<script src="lib/easing/easing.min.js"></script>-->
-<!--<script src="lib/owlcarousel/owl.carousel.min.js"></script>-->
-
-<!--&lt;!&ndash; Contact Javascript File &ndash;&gt;-->
-<!--<script src="mail/jqBootstrapValidation.min.js"></script>-->
-<!--<script src="mail/contact.js"></script>-->
-
-<!--&lt;!&ndash; Template Javascript &ndash;&gt;-->
-<!--<script src="js/main.js"></script>-->
-
-<!--<section id="home">-->
-<!--    <div class="container">-->
-
-<!--        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">-->
-
-<!--            &lt;!&ndash; <ol class="carousel-indicators">-->
-<!--                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
-<!--                <li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
-<!--            </ol> &ndash;&gt;-->
-
-
-<!--            <div class="carousel-inner" role="listbox">-->
-
-<!--                <div class="item active">-->
-<!--                    <div class="carousel-caption">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-md-4 col-sm-6">-->
-<!--                                <div class="block">-->
-<!--                                    <img class="app-img img-responsive" src="images/slider/1.png" alt="">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-md-6 col-md-offset-1 col-sm-6">-->
-<!--                                <div class="block">-->
-<!--                                    <h1>-->
-<!--                                        NEW in our store,<br> iPhone 6.-->
-<!--                                    </h1>-->
-<!--                                    <p>-->
-<!--                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nemo, corporis-->
-<!--                                        ipsum soluta nobis ea!-->
-<!--                                    </p>-->
-
-<!--                                    <ul class="download-btn">-->
-<!--                                        <li>-->
-<!--                                            <a href="#" class="btn btn-default btn-red"> <i class="fa fa-list"></i>Details</a>-->
-<!--                                        </li>-->
-<!--                                        <li>-->
-<!--                                            <a href="#" class="btn btn-default btn-red"><i-->
-<!--                                                    class="fa fa-shopping-cart"></i>BUY NOW</a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-
-
-<!--<section id="services">-->
-<!--    <div class="container">-->
-<!--        <h1 class="title">Services</h1>-->
-<!--        <hr class="divider" style="width:50%;border-color:#CCC;">-->
-<!--        <p class="text-center">Lorem ipsum dolor sit amet</p>-->
-<!--        <div class="service-wrapper">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-3 col-sm-6">-->
-<!--                    <div class="block wow fadeInRight" data-wow-delay="1s">-->
-<!--                        <div class="icon">-->
-<!--                            <i class="fa fa-truck"></i>-->
-<!--                        </div>-->
-
-<!--                        <h3>Delivery service</h3>-->
-<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, amet.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-3 col-sm-6">-->
-<!--                    <div class="block wow fadeInRight" data-wow-delay="1.3s">-->
-<!--                        <div class="icon">-->
-<!--                            <i class="fa  fa-list"></i>-->
-<!--                        </div>-->
-<!--                        <h3>200+ Products</h3>-->
-<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, amet.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-3 col-sm-6">-->
-<!--                    <div class="block wow fadeInRight" data-wow-delay="1.6s">-->
-<!--                        <div class="icon">-->
-<!--                            <i class="fa  fa-shopping-cart"></i>-->
-<!--                        </div>-->
-<!--                        <h3>Online shopping</h3>-->
-<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, amet.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-3 col-sm-6">-->
-<!--                    <div class="block wow fadeInRight" data-wow-delay="1.9s">-->
-<!--                        <div class="icon">-->
-<!--                            <i class="fa  fa-cc-visa"></i>-->
-<!--                        </div>-->
-<!--                        <h3>All Cards accepted</h3>-->
-<!--                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, amet.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-
-
-<!--<section id="products" style="background-color: #eee;">-->
-<!--    <div class="container py-5">-->
-<!--        <h1 class="title">Products</h1>-->
-<!--        <hr class="divider" style="width:50%;">-->
-<!--        <p class="text-center">Lorem ipsum dolor sit amet</p>-->
-<!--        <div class="row" style="margin-top:40px;">-->
-
-<!--            <div class="col-sm-3 wow fadeInLeft " data-wow-delay=".8s" th:each="item : ${listProduct}">-->
-
-<!--                <img th:src="${item.getProductImageLink()}" alt="iPhone 6" class="img-fluid " width="240" height="230">-->
-<!--                <h4 th:text="${item.getProductName()}" name="productName">hoa </h4>-->
-<!--                <div class="product-info">-->
-
-<!--                    <div class="col-sm-8">-->
-
-<!--                        <p th:text="${item.getProductLine()}"></p><ul class="product-btns">-->
-<!--                        <li>-->
-<!--                            <a th:href="@{/detail/{ProductCode}(ProductCode=${item.getProductCode()})}" class="btn btn-default btn-red-o"> <i class="fa fa-list"></i>-->
-<!--                                Details</a>-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <a href="#" class="btn btn-default btn-red-o"><i class="fa fa-shopping-cart"></i> BUY-->
-<!--                                NOW</a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                    </div>-->
-<!--                    <div class="col-sm-4 price" th:text="${item.getBuyPrice()}"></div>-->
-<!--                    <div class="clear"></div>-->
-
-<!--                </div>-->
-
-<!--            </div>-->
-
-
-<!--            <div class="text-center">-->
-<!--                <ul class="pagination pagination-lg wow fadeInUp" data-wow-delay="1.1s">-->
-<!--                    <li class="active"><a href="#">1</a></li>-->
-<!--                    <li><a href="#">2</a></li>-->
-<!--                    <li><a href="#">3</a></li>-->
-<!--                    <li><a href="#">4</a></li>-->
-<!--                    <li><a href="#">5</a></li>-->
-<!--                    <li><a href="#">6</a></li>-->
-<!--                    <li><a href="#">7</a></li>-->
-<!--                    <li><a href="#">8</a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-
-
-<!--<section id="testimonials">-->
-<!--    <div id="carousel-example-generict" class="carousel slide" data-ride="carousel">-->
-
-<!--        <ol class="carousel-indicators">-->
-<!--            <li data-target="#carousel-example-generict" data-slide-to="0" class="active"></li>-->
-<!--            <li data-target="#carousel-example-generict" data-slide-to="1"></li>-->
-<!--        </ol>-->
-
-
-<!--        <div class="carousel-inner" role="listbox">-->
-
-<!--            <div class="item active">-->
-<!--                <div class="carousel-caption">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-12 col-sm-12">-->
-<!--                            <div class="block text-center">-->
-<!--                                <img class="img-responsive img-circle center-block" src="images/testimonials/1.jpg"-->
-<!--                                     alt="" style="height:100px;">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-12 col-sm-12 text-center">-->
-<!--                            <div class="block">-->
-<!--                                <h3 style="color:#ff0f37;" class="text-center">Absolutely Brilliant - Julia Doe</h3>-->
-<!--                                <p style="color:#111;font-size:14px;">-->
-<!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor-->
-<!--                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
-<!--                                    exercitation ullamco laboris nisi ut aliquip ex ea com Neque porro quisqua-->
-<!--                                    lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor-->
-<!--                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
-<!--                                    exercitation ullamco laboris nisi ut aliquip ex ea com Neque porro quisqua-->
-<!--                                    lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor-->
-<!--                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
-<!--                                    exercitation ullamco laboris nisi ut aliquip ex ea com Neque porro quisqua-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
-<!--            <div class="item">-->
-<!--                <div class="carousel-caption">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-md-12 col-sm-12">-->
-<!--                            <div class="block text-center">-->
-<!--                                <img class="img-responsive img-circle center-block" src="images/testimonials/1.jpg"-->
-<!--                                     alt="" style="height:100px;">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-12 col-sm-12 text-center">-->
-<!--                            <div class="block">-->
-<!--                                <h3 style="color:#ff0f37;" class="text-center">Amazing Service! - John Doe</h3>-->
-<!--                                <p style="color:#111;font-size:14px;">-->
-<!--                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor-->
-<!--                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
-<!--                                    exercitation ullamco laboris nisi ut aliquip ex ea com Neque porro quisqua-->
-<!--                                    lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor-->
-<!--                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
-<!--                                    exercitation ullamco laboris nisi ut aliquip ex ea com Neque porro quisqua-->
-<!--                                    lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor-->
-<!--                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
-<!--                                    exercitation ullamco laboris nisi ut aliquip ex ea com Neque porro quisqua-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
-<!--        </div>-->
-
-<!--    </div>-->
-<!--</section>-->
-
-
-<section id="contact" class="wow fadeInUp bgc-one-top mts-section-wrapper mts-contact-section" data-wow-delay=".8s"
-         style="margin-top:50px;margin-bottom:50px;">
-    <div class="container">
-        <div class="row">
-            <h1 class="title">Contact us</h1>
-            <hr class="divider" style="width:50%;">
-            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            <!-- Section Header End -->
-
-            <div class="mts-contact-details" style="margin-top:30px;">
-
-                <!-- Address Area End -->
-
-                <!-- Contact Form -->
-                <div class="col-md-6 col-sm-6 col-xs-12 mts-contact-form wow bounceInRight">
-                    <div id="contact-result"></div>
-                    <div id="contact-form">
-                        <div class="mts-input-name mts-input-fields">
-                            <input type="text" name="name" id="name" placeholder="Name">
-                        </div>
-
-                        <div class="mts-input-email mts-input-fields">
-                            <input type="email" name="email" id="email" placeholder="Email">
-                        </div>
-
-                        <div class="mts-input-message mts-input-fields">
-                            <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                        </div>
-
-                        <input type="submit" value="SEND MESSAGE" id="submit-btn">
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi ducimus in rerum fugiat deserunt
-                        laboriosam tempore velit, eaque provident incidunt quisquam. Qui soluta accusantium pariatur
-                        obcaecati, harum molestiae eum, repellendus.</p>
-                    <ul>
-                        <li><i class="fa fa-home"></i>01011 Road ave.</li>
-                        <li><i class="fa fa-phone"></i>(+1) 012 3456</li>
-                        <li><i class="fa fa-envelope-o"></i>john@store.com</li>
-                    </ul>
-                </div>
-                <!-- Contact Form End -->
-
-            </div>
+<div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+    <div class="row px-xl-5 pt-5">
+        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            <a href="" class="text-decoration-none">
+                <h1 class="mb-4 display-5 font-weight-semi-bold"><span
+                        class="text-primary font-weight-bold border border-white px-3 mr-1">E</span>Shopper</h1>
+            </a>
+            <p>Dolore erat dolor sit lorem vero amet. Sed sit lorem magna, ipsum no sit erat lorem et magna ipsum dolore
+                amet erat.</p>
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
+            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
         </div>
-    </div>
-</section>
 
-<footer class="wow fadeInUp" data-wow-delay=".8s">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-md-12">
-                <a class="footer-logo" href="#">
-                    <img class="img-responsive" src="images/footer-logo.png" alt="">
-                </a>
-                <p>Copyright © 2016 <a href="http://gridgum.com">Gridgum</a></p>
-
-            </div>
-        </div>
     </div>
-</footer>
+
+</div>
+
 
 </body>
 </html>

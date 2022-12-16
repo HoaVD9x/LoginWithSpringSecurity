@@ -12,6 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.core.Authentication;
 //import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.LockedException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -38,14 +43,23 @@ public class Home {
     @GetMapping("/")
     public ModelAndView home(HttpServletRequest request, HttpSession session, ModelMap modelMap) {
         List<Products> products = productService.listProduct();
+
         return new ModelAndView("index","listProduct",products);
     }
 
     @GetMapping("/login")
     public String login (HttpServletRequest request, HttpSession session) {
+        session.setAttribute("error", getErrorMessage(request));
         return "login";
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication.isAuthenticated())
+            new SecurityContextLogoutHandler().logout(request,response, authentication);
+return "redirect:login";
+    }
     @GetMapping("/register")
     public  String register (){
         return "register";
@@ -68,6 +82,17 @@ public class Home {
         return "productDetail";
     }
 
-
+    private String getErrorMessage (HttpServletRequest request) {
+        Exception exception = (Exception) request.getSession().getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
+        String error;
+        if (exception instanceof BadCredentialsException ) {
+            error = "Invalid username and password!";
+        } else if (exception instanceof LockedException) {
+            error = exception.getMessage();
+        }else  {
+            error = "Invalid username and password!";
+        }
+        return error;
+    }
 
 }
